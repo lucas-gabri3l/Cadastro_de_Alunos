@@ -15,7 +15,7 @@ match funcionalidades:
             aluno["nota"] = (float(input("Digite a nota do aluno: ")))
             lista_de_alunos.append(aluno) #Adiciona a uma lista esse dicionário do aluno.
 
-            escolha=int(input("Você deseja adicionar mais um aluno? (1- Sim, 2- Não)")) # Pergunta se quer sair ou não
+            escolha=int(input("Você deseja adicionar mais um aluno? (1- Sim, 2- Não): ")) # Pergunta se quer sair ou não
 
             if escolha == 1:
                 continue
@@ -23,7 +23,9 @@ match funcionalidades:
                 break
 
     case 2:
-
+        for numero, alunos in enumerate(lista_de_alunos, start=1):
+            print(f"{numero} - Aluno\n Nome: {alunos["nome"]}\n Idade: {alunos["idade"]}\n Nota: {alunos["nota"]}\n")
+        
     case 3:
 
     case 4:
