@@ -10,7 +10,7 @@ match funcionalidades:
         while True:
             #Cria o dicionário com aluno = {}
             aluno = {}
-            aluno["nome"] = (str(input("Digite o nome do aluno: "))) #Atribui nome, idade e nota.
+            aluno["nome"] = (str(input("Digite o nome do aluno: "))).lower() #Atribui nome, idade e nota.
             aluno["idade"] = (int(input("Digite a idade do aluno: ")))
             aluno["nota"] = (float(input("Digite a nota do aluno: ")))
             lista_de_alunos.append(aluno) #Adiciona a uma lista esse dicionário do aluno.
@@ -23,11 +23,28 @@ match funcionalidades:
                 break
 
     case 2:
-        for numero, alunos in enumerate(lista_de_alunos, start=1):
-            print(f"{numero} - Aluno\n Nome: {alunos["nome"]}\n Idade: {alunos["idade"]}\n Nota: {alunos["nota"]}\n")
+        print("LISTA DE ALUNOS")
+        
+        if len(lista_de_alunos) > 0: 
+            for numero, alunos in enumerate (lista_de_alunos, start=1):
+                print(f"{numero} - Aluno\n Nome: {alunos['nome'].title()}\n Idade: {alunos['idade']}\n Nota: {alunos['nota']}\n")
+        else:
+            print("Não há nenhum aluno cadastrado!")
         
     case 3:
+        print("BUSCA DE ALUNOS")
 
+        nome_buscado = str(input("Digite o nome do Aluno que você procura?")).strip().lower()
+        encontrou = False
+
+        for aluno in lista_de_alunos:
+            if aluno["nome"].strip().lower() == nome_buscado:
+                print(f"Aluno Encontrado\n Nome: {aluno['nome'].title()}\n Idade: {aluno['idade']}\n Nota: {aluno['nota']}\n")
+                encontrou = True
+                break
+        if not encontrou:
+                print("Aluno não está no sistema.")
+        
     case 4:
 
     case 5:
